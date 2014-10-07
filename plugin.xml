@@ -36,4 +36,18 @@
         <header-file src="src/ios/CDVPhonegapBuildOauth.h" />
         <source-file src="src/ios/CDVPhonegapBuildOauth.m" />
     </platform>
+
+    
+    <platform name="android">
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="PhonegapBuildOauth">
+                <param name="android-package" value="com.phonegap.build.oauth.PhonegapBuildOauth"/>
+            </feature>   
+            <preference name="pgb-client-id" value="$CLIENT_ID" />
+            <preference name="pgb-client-secret" value="$CLIENT_SECRET" />
+        </config-file>
+
+        <source-file src="src/android/src/com/phonegap/build/PhonegapBuildOauth.java" target-dir="src/com/phonegap/build/oauth" />
+    </platform>
 </plugin>
