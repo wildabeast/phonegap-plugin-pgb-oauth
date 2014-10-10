@@ -25,8 +25,8 @@ import android.util.Log;
 
 public class PhonegapBuildOauth extends CordovaPlugin {
 	
-	private String CLIENT_ID;
-	private String CLIENT_SECRET;
+	private String CLIENT_ID = "";
+	private String CLIENT_SECRET = "";
 	private final String HOSTNAME = "https://build.phonegap.com";
 	
 	CallbackContext cb;
@@ -34,8 +34,6 @@ public class PhonegapBuildOauth extends CordovaPlugin {
 	@Override
 	public boolean execute(String action, JSONArray args,
 			CallbackContext callbackContext) {
-		
-		// TODO: get CLIENT_ID, CLIENT_SECRET preferences
 
 		this.cb = callbackContext;
 

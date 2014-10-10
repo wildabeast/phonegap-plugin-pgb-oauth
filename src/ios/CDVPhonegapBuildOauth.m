@@ -10,8 +10,8 @@
 
 @implementation CDVPhonegapBuildOauth
 
-NSString* CLIENT_ID;
-NSString* CLIENT_SECRET;
+NSString* CLIENT_ID = "";
+NSString* CLIENT_SECRET = "";
 NSString* HOSTNAME = @"https://build.phonegap.com";
 
 NSMutableData *responseData;
@@ -23,21 +23,6 @@ NSString* state = nil;
 {
     NSString* username = [command.arguments objectAtIndex:0];
     NSString* password = [command.arguments objectAtIndex:1];
-
-    NSString* setting = @"pgb-client-id";
-    if ([self settingForKey:setting]) {
-        CLIENT_ID = [self settingForKey:setting];
-    } else {
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"missing preference pgb-client-id"];
-        [self.commandDelegate sendPluginResult:pluginResult callbackId:cdvCommand.callbackId];
-    }
-    setting = @"pgb-client-secret";
-    if ([self settingForKey:setting]) {
-        CLIENT_SECRET = [self settingForKey:setting];
-    } else {
-        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"missing preference pgb-client-secret"];
-        [self.commandDelegate sendPluginResult:pluginResult callbackId:cdvCommand.callbackId];
-    }
     
     cdvCommand = command;
     responseData = [NSMutableData data];
