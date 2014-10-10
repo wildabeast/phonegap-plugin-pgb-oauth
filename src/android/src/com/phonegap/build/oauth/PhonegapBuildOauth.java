@@ -44,10 +44,7 @@ public class PhonegapBuildOauth extends CordovaPlugin {
 				password = (String) args.get(1);
 				login(username, password);
 			} catch (JSONException e1) {
-				PluginResult r = new PluginResult(PluginResult.Status.ERROR,
-						e1.getMessage());
-				r.setKeepCallback(false);
-				cb.sendPluginResult(r);
+				fail(e1.getMessage());
 				return true;
 			}
 		}
@@ -80,6 +77,12 @@ public class PhonegapBuildOauth extends CordovaPlugin {
 		}
 	}
 	
+	private void fail(String message) {
+		PluginResult r = new PluginResult(PluginResult.Status.ERROR, message);
+		r.setKeepCallback(false);
+		cb.sendPluginResult(r);
+	}
+	
 	private void authorize(String token) {
 		List<NameValuePair> data = new ArrayList<NameValuePair>(3);
 		data.add(new BasicNameValuePair("client_id", CLIENT_ID));
@@ -96,9 +99,11 @@ public class PhonegapBuildOauth extends CordovaPlugin {
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			fail(e.getMessage());
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			fail(e.getMessage());
 		}
 	}
 
@@ -123,9 +128,11 @@ public class PhonegapBuildOauth extends CordovaPlugin {
 		} catch (ClientProtocolException e) {
 			Log.e("PhonegapBuildOauth", "Uncaught exception from plugin", e);
 			e.printStackTrace();
+			fail(e.getMessage());
 		} catch (IOException e) {
 			Log.e("PhonegapBuildOauth", "Uncaught exception from plugin", e);
 			e.printStackTrace();
+			fail(e.getMessage());
 		}
 
 		HttpEntity entity = response.getEntity();
@@ -150,8 +157,10 @@ public class PhonegapBuildOauth extends CordovaPlugin {
 
 			} catch (IllegalStateException e) {
 				e.printStackTrace();
+				fail(e.getMessage());
 			} catch (IOException e) {
 				e.printStackTrace();
+				fail(e.getMessage());
 			}
 		}
 		
