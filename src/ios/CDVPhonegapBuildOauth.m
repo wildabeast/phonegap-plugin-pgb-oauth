@@ -10,8 +10,8 @@
 
 @implementation CDVPhonegapBuildOauth
 
-NSString* CLIENT_ID = "";
-NSString* CLIENT_SECRET = "";
+NSString* CLIENT_ID = @"";
+NSString* CLIENT_SECRET = @"";
 NSString* HOSTNAME = @"https://build.phonegap.com";
 
 NSMutableData *responseData;
@@ -36,11 +36,6 @@ NSString* state = nil;
 
 }
 
-- (id)settingForKey:(NSString*)key
-{
-    return [self.commandDelegate.settings objectForKey:[key lowercaseString]];
-}
-
 - (void)authorize:(NSString *)token
 {
     NSString *post = [NSString stringWithFormat:@"&client_id=%@&client_secret=%@&auth_token=%@",CLIENT_ID, CLIENT_SECRET, token];
@@ -50,6 +45,22 @@ NSString* state = nil;
     state = @"authorize";
     [self sendPost:postData :[NSString stringWithFormat:@"%@/authorize", HOSTNAME] :nil];
 
+}
+
+- (void)authorizeByCode:(CDVInvokedUrlCommand*)command
+{
+    NSString* code = [command.arguments objectAtIndex:0];
+    
+    cdvCommand = command;
+    responseData = [NSMutableData data];
+    
+    NSString *post = [NSString stringWithFormat:@"&client_id=%@&client_secret=%@&code=%@",CLIENT_ID, CLIENT_SECRET, code];
+    
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    
+    state = @"authorize";
+    [self sendPost:postData :[NSString stringWithFormat:@"%@/authorize/token", HOSTNAME] :nil];
+    
 }
 
 -(void)sendPost:(NSData *)postData :(NSString *)url :(NSString *)authValue
