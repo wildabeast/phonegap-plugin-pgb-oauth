@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    id="com.phonegap.build.oauth"
-    version="0.2.0">
+    id="phonegap-plugin-pgb-oauth"
+    version="0.2.1">
 
     <name>Phonegap Build Oauth Plugin</name>
 
@@ -10,8 +10,8 @@
 
     <license>MIT</license>
 
-    <repo>https://github.com/wildabeast/phonegap-build-oauth-plugin</repo>
-    <issue>https://github.com/wildabeast/phonegap-build-oauth-plugin/issues</issue> 
+    <repo>https://github.com/wildabeast/phonegap-plugin-pgb-oauth</repo>
+    <issue>https://github.com/wildabeast/phonegap-plugin-pgb-oauth/issues</issue> 
     
     <engines>
         <engine name="cordova" version=">=3.5.0" />
@@ -41,6 +41,6 @@
             </feature>   
         </config-file>
 
-	<source-file src="src/android/src/com/phonegap/build/oauth/PhonegapBuildOauth.java" target-dir="src/com/phonegap/build/oauth" />
+        <source-file src="src/android/src/com/phonegap/build/oauth/PhonegapBuildOauth.java" target-dir="src/com/phonegap/build/oauth" />
     </platform>
 </plugin>
