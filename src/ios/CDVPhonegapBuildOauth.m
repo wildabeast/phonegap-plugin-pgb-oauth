@@ -10,8 +10,8 @@
 
 @implementation CDVPhonegapBuildOauth
 
-NSString* CLIENT_ID = @"";
-NSString* CLIENT_SECRET = @"";
+NSString* CLIENT_ID = @"$PGB_CLIENT_ID";
+NSString* CLIENT_SECRET = @"PGB_CLIENT_SECRET";
 NSString* HOSTNAME = @"https://build.phonegap.com";
 
 NSMutableData *responseData;

@@ -22,8 +22,8 @@ import android.util.Log;
 
 public class PhonegapBuildOauth extends CordovaPlugin {
 	
-	private String CLIENT_ID = "";
-	private String CLIENT_SECRET = "";
+	private String CLIENT_ID = "$PGB_CLIENT_ID";
+	private String CLIENT_SECRET = "$PGB_CLIENT_SECRET";
 	private final String HOSTNAME = "https://build.phonegap.com";
 	
 	CallbackContext cb;

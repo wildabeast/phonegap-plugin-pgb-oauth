@@ -12,6 +12,9 @@
 
     <repo>https://github.com/wildabeast/phonegap-plugin-pgb-oauth</repo>
     <issue>https://github.com/wildabeast/phonegap-plugin-pgb-oauth/issues</issue> 
+
+    <preference name="PGB_CLIENT_ID" default="default-value" />
+    <preference name="PGB_CLIENT_SECRET" default="default-value" />
     
     <engines>
         <engine name="cordova" version=">=3.5.0" />
