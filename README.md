@@ -8,9 +8,12 @@ iOS only so far.
 
 ### Installation
 
-	plugman install --platform ios --project /path/to/myproject --plugin https://github.com/wildabeast/phonegap-plugin-pgb-oauth.git --var CLIENT_ID=5tg33it CLIENT_SECRET=93htf93hr
+	plugman install --platform ios --project /path/to/myproject --plugin https://github.com/wildabeast/phonegap-plugin-pgb-oauth.git
 
-A ```CLIENT_ID``` and ```CLIENT_SECRET``` can be obtained by [registering your application on Phonegap Build](http://docs.phonegap.com/phonegap-build/developer-api/oauth/).
+A ```CLIENT_ID``` and ```CLIENT_SECRET``` can be obtained by [registering your application on Phonegap Build](http://docs.phonegap.com/phonegap-build/developer-api/oauth/). Then update the `PGB_CLIENT_ID` / `PGB_CLIENT_SECRET` variables in:
+
+  - iOS: `platforms/ios/<ProjectName>/Plugins/phonegap-plugin-pgb-oauth/CDVPhonegapBuildOauth.m`.
+  - Android: `platforms/android/src/com/phonegap/build/oauth/PhonegapBuildOauth.java`
 
 ### Usage
 

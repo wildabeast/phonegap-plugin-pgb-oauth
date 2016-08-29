@@ -12,6 +12,8 @@
 
     <repo>https://github.com/wildabeast/phonegap-plugin-pgb-oauth</repo>
     <issue>https://github.com/wildabeast/phonegap-plugin-pgb-oauth/issues</issue> 
+
+    <info>You need to add your PhoneGap Build Client ID and Client Secret to the Oauth Plugin source files. See https://github.com/wildabeast/phonegap-plugin-pgb-oauth#installation.</info>
     
     <engines>
         <engine name="cordova" version=">=3.5.0" />
