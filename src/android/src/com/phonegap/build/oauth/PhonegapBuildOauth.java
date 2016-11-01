@@ -27,6 +27,23 @@ public class PhonegapBuildOauth extends CordovaPlugin {
 	private final String HOSTNAME = "https://build.phonegap.com";
 	
 	CallbackContext cb;
+	
+	@Override
+	public void pluginInitialize() {
+		// override CLIENT_ID with value set as plugin parameter
+		int id = cordova.getActivity().getResources().getIdentifier("PGB_CLIENT_ID", "string", cordova.getActivity().getPackageName());
+		String pgb_client_id = cordova.getActivity().getResources().getString(id);
+		if (pgb_client_id != null && !pgb_client_id.isEmpty()) {
+			CLIENT_ID = pgb_client_id;
+		}
+
+		// override CLIENT_SECRET with value set as plugin parameter
+		id = cordova.getActivity().getResources().getIdentifier("PGB_CLIENT_SECRET", "string", cordova.getActivity().getPackageName());
+		String pgb_client_secret = cordova.getActivity().getResources().getString(id);
+		if (pgb_client_secret != null && !pgb_client_secret.isEmpty()) {
+			CLIENT_SECRET = pgb_client_secret;
+		}
+	}
 
 	@Override
 	public boolean execute(String action, JSONArray args,

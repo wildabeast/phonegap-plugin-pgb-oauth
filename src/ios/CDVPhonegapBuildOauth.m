@@ -19,6 +19,16 @@ CDVPluginResult* pluginResult = nil;
 CDVInvokedUrlCommand* cdvCommand;
 NSString* state = nil;
 
+- (void)pluginInitialize
+{
+    NSString *client_id = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"PGB_CLIENT_ID"];
+    if ([client_id length] != 0)
+        CLIENT_ID = client_id;
+    NSString *client_secret = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"PGB_CLIENT_SECRET"];
+    if ([client_secret length] != 0)
+        CLIENT_SECRET = client_secret;
+}
+
 - (void)login:(CDVInvokedUrlCommand*)command
 {
     NSString* username = [command.arguments objectAtIndex:0];
