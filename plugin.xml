@@ -2,7 +2,7 @@
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="phonegap-plugin-pgb-oauth"
-    version="0.2.1">
+    version="0.3.2">
 
     <name>Phonegap Build Oauth Plugin</name>
 

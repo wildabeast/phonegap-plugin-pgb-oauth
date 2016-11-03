@@ -10,6 +10,12 @@ var PhonegapBuildOauth = {
 
 			cordova.exec(success, failure, "PhonegapBuildOauth", "authorizeByCode", [code]);
 
+	},
+
+	getClientID: function(success, failure) {
+
+		cordova.exec(success, failure, "PhonegapBuildOauth", "getClientID", []);
+
 	}
 
 };

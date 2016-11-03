@@ -63,6 +63,13 @@ NSString* state = nil;
     
 }
 
+-(void)getClientID:(CDVInvokedUrlCommand*)command
+{
+    CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:CLIENT_ID];
+    [result setKeepCallback:[NSNumber numberWithBool:NO]];
+    [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+}
+
 -(void)sendPost:(NSData *)postData :(NSString *)url :(NSString *)authValue
 {
     NSString *postLength = [NSString stringWithFormat:@"%d",[postData length]];

@@ -45,6 +45,12 @@ public class PhonegapBuildOauth extends CordovaPlugin {
 				return true;
 			}
 		}
+
+		if (action.equals("getClientID")) {
+			PluginResult r = new PluginResult(PluginResult.Status.OK, CLIENT_ID);
+			r.setKeepCallback(false);
+			cb.sendPluginResult(r);
+		}
 		
 		if (action.equals("authorizeByCode")) {
 			String code;
